@@ -38,20 +38,25 @@ class HelloWorld {
             par = 120;
         }
 
+        // Prompt the user to enter the speed of the skier
         System.out.println("Enter the speed of the skier in meters/second: ");
         int speedMetersSecond = input.nextInt();
+        // Prevent the user from entering a negative number
         while (speedMetersSecond < 0) {
             System.out.println("Enter a value greater than 0: ");
             speedMetersSecond = input.nextInt();
         }
 
+        // Calculate the time in air, distance traveled, and points earned
         double timeInAir = Math.sqrt((2 * height) / 9.8);
         double distanceTraveled = speedMetersSecond * timeInAir;
         double points = 60 + (distanceTraveled - par) * pointsPerMeter;
 
+        // Print distance traveled and points earned formatted to two decimal places
         System.out.println("The distance traveled is: " + String.format("%.2f", distanceTraveled));
         System.out.println("The number of points: " + String.format("%.2f", points));
 
+        // Output message based on how many points they earned
         if (points > 60) {
             System.out.println("Great job for doing better than par!");
         } else if (points < 10) {
